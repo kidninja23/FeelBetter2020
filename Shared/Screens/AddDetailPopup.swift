@@ -17,7 +17,7 @@ struct AddDetailPopup: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color(UIColor.systemGray6))
+                .fill(Color.white)
                 .opacity(0.5)
             VStack {
                 Text(instruction ?? "Add Details")

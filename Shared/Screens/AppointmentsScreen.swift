@@ -70,7 +70,7 @@ struct AppointmentsScreen: View {
                                         .padding()
                                         
                                 }
-                                .background(Color(UIColor.systemGray6))
+                                .background(Color.white)
                                 .cornerRadius(5)
                                 .shadow(radius: 3)
                                     
@@ -87,11 +87,12 @@ struct AppointmentsScreen: View {
                 }
                 Spacer()
                 
-            }.if(showEditor){ $0.blur(radius: 3.0) }
+            }.background(Color(UIColor.systemGray6))
+            .if(showEditor){ $0.blur(radius: 3.0) }
             if showEditor {
                 ZStack {
                     RoundedRectangle(cornerRadius: 25.0)
-                        .fill(Color(UIColor.systemGray6))
+                        .fill(Color.white)
                         .opacity(0.3)
                     EditAppointment(appointment: store.familyDetails["ACTIVE_APPOINTMENT"]! as! AppointmentData, showEditor: $showEditor)
                 }
@@ -106,7 +107,7 @@ struct CancelStyleThin: ButtonStyle {
         configuration.label
             .padding()
             .frame(width: 160, height: 40, alignment: .center)
-            .background(Color(UIColor.systemGray5))
+            .background(Color.white)
             .cornerRadius(5.0).shadow(radius: 3)
             .scaleEffect(configuration.isPressed ? 1.08 : 1.0)
             

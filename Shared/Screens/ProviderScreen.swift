@@ -65,7 +65,7 @@ struct ProviderScreen: View {
             }
             .padding(.leading, 10)
             .padding(.trailing, 10)
-        }
+        }.background(Color(UIColor.systemGray6))
     }
 }
 
@@ -101,7 +101,7 @@ struct MedicalProvider: View {
             }
         }.frame(width: 155, height: 155, alignment: .leading)
         .padding()
-        .background(Color(UIColor.systemGray6))
+        .background(Color.white)
         .cornerRadius(10)
         .shadow(radius: 5)
     }

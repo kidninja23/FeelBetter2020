@@ -111,7 +111,7 @@ struct GuardianAvatarSelectionScreen: View {
             if showConfirm {
                 ZStack{
                     RoundedRectangle(cornerRadius: 25.0)
-                        .fill(Color(UIColor.systemGray6))
+                        .fill(Color.white)
                         .opacity(0.3)
                     VStack {
                         Spacer()

@@ -60,9 +60,9 @@ struct InsuranceDetails: View {
                                 .font(.title2)
                         }).buttonStyle(CancelStyle())
                         .padding(.trailing)
-                    }
+                    }.padding(.trailing)
                 }
-                }
+            }
             .onAppear(perform: {
                 providerName = insurance.ProviderName
                 healthPlan = insurance.HealthPlan
@@ -104,7 +104,7 @@ struct EditableLabeledData: View {
                         Image(systemName: "pencil")
                     })
                 }.padding(21)
-                .background(Color(UIColor.systemGray6))
+                .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 5)
             } else {
@@ -124,7 +124,7 @@ struct EditableLabeledData: View {
                     })
                     
                 }.padding()
-                .background(Color(UIColor.systemGray6))
+                .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 5)
             }

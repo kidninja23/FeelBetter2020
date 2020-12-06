@@ -67,7 +67,7 @@ struct ChildPopoutButton: View {
         NavigationLink(destination: ChildScreen(showMenu: $showMenu, child: child), label: {
             ZStack (alignment: .leading){
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(UIColor.systemGray6))
+                    .fill(Color.white)
                     .shadow(radius: 5)
                 HStack {
                     Image(self.store.fetchProfileImage(child: child))

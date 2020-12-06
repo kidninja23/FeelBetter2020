@@ -25,7 +25,7 @@ struct InformationField: View {
                     .padding()
                 }
             .frame(width: .infinity, height: .infinity, alignment: .center)
-                .background(Color(UIColor.systemGray6))
+                .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 5)
                 .padding(.leading)

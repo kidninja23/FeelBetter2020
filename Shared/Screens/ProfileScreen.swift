@@ -66,7 +66,7 @@ struct GuardianDetailView: View {
                     .font(.system(size: 18, weight: .bold, design: .rounded)).padding()
             }
             .frame(width: .infinity, height: .infinity, alignment: .center )
-            .background(Color(UIColor.systemGray6))
+            .background(Color.white)
             .cornerRadius(5)
             .shadow(radius: 3)
             .padding(.leading)

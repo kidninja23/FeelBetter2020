@@ -126,24 +126,42 @@ internal extension OCKStore {
             ClericStore.shared.activeCarePlan[patient] = id 
         }
         
-        let schedule = OCKSchedule(composing: [
-            OCKScheduleElement(start: earlyMorning, end: finalDay, interval: DateComponents(day: 1)),
-            
-            OCKScheduleElement(start: midMorning, end: finalDay, interval: DateComponents(day: 1)),
-            
-            OCKScheduleElement(start: midDay, end: finalDay, interval: DateComponents(day: 1)),
-            
-            OCKScheduleElement(start: earlyAfternoon, end: finalDay, interval: DateComponents(day: 1)),
-            
-            OCKScheduleElement(start: evening, end: finalDay, interval: DateComponents(day: 1)),
-            
-            OCKScheduleElement(start: lateEvening, end: finalDay, interval: DateComponents(day: 1)),
         
-        ])
+        let earlyMornSchedule = OCKSchedule(composing:[ OCKScheduleElement(start: earlyMorning, end: finalDay, interval: DateComponents(day: 1))])
+            
+        let midMornSchedule = OCKSchedule(composing: [OCKScheduleElement(start: midMorning, end: finalDay, interval: DateComponents(day: 1))])
+
+        let midDaySchedule = OCKSchedule(composing: [OCKScheduleElement(start: midDay, end: finalDay, interval: DateComponents(day: 1))])
+
+        let earlyAfternoonSchedule = OCKSchedule(composing: [OCKScheduleElement(start: earlyAfternoon, end: finalDay, interval: DateComponents(day: 1))])
+
+        let eveningSchedule = OCKSchedule(composing: [OCKScheduleElement(start: evening, end: finalDay, interval: DateComponents(day: 1))])
+
+        let lateEveningSchedule = OCKSchedule(composing: [OCKScheduleElement(start: lateEvening, end: finalDay, interval: DateComponents(day: 1))])
         
-        var recordTemperature = OCKTask(id: "Temperature Check: \(id)", title: "Record Temperature", carePlanUUID: nil, schedule: schedule)
-        recordTemperature.instructions = "While your child is awake, record their temperature using a standard thermometer."
-        recordTemperature.impactsAdherence = true
+        var recordTemperature01 = OCKTask(id: "Temperature Check 1: \(id)", title: "Record Temperature", carePlanUUID: nil, schedule: earlyMornSchedule)
+        recordTemperature01.instructions = "While your child is awake, record their temperature using a standard thermometer."
+        recordTemperature01.impactsAdherence = true
+        
+        var recordTemperature02 = OCKTask(id: "Temperature Check 2: \(id)", title: "Record Temperature", carePlanUUID: nil, schedule: midMornSchedule)
+        recordTemperature02.instructions = "While your child is awake, record their temperature using a standard thermometer."
+        recordTemperature02.impactsAdherence = true
+        
+        var recordTemperature03 = OCKTask(id: "Temperature Check 3: \(id)", title: "Record Temperature", carePlanUUID: nil, schedule: midDaySchedule)
+        recordTemperature03.instructions = "While your child is awake, record their temperature using a standard thermometer."
+        recordTemperature03.impactsAdherence = true
+        
+        var recordTemperature04 = OCKTask(id: "Temperature Check 4: \(id)", title: "Record Temperature", carePlanUUID: nil, schedule: earlyAfternoonSchedule)
+        recordTemperature04.instructions = "While your child is awake, record their temperature using a standard thermometer."
+        recordTemperature04.impactsAdherence = true
+        
+        var recordTemperature05 = OCKTask(id: "Temperature Check 5: \(id)", title: "Record Temperature", carePlanUUID: nil, schedule: eveningSchedule)
+        recordTemperature05.instructions = "While your child is awake, record their temperature using a standard thermometer."
+        recordTemperature05.impactsAdherence = true
+        
+        var recordTemperature06 = OCKTask(id: "Temperature Check 6: \(id)", title: "Record Temperature", carePlanUUID: nil, schedule: lateEveningSchedule)
+        recordTemperature06.instructions = "While your child is awake, record their temperature using a standard thermometer."
+        recordTemperature06.impactsAdherence = true
         
         let intakeSchedule = OCKSchedule(composing: [OCKScheduleElement(start: earlyMorning, end: nil, interval: DateComponents(day: 1), text: "Record any food eaten.", targetValues: [], duration: .allDay)])
         
@@ -159,6 +177,6 @@ internal extension OCKStore {
         var symptomLog = OCKTask(id: "Symptom Log: \(id)", title: "Log Symptoms", carePlanUUID: nil, schedule: intakeSchedule)
         symptomLog.instructions = "Record any new or changing symptoms."
         
-        addTasks([recordTemperature, recordFood, recordLiquid, recordMedication, symptomLog], callbackQueue: .main, completion: nil)
+        addTasks([recordTemperature01, recordTemperature02, recordTemperature03, recordTemperature04, recordTemperature05, recordTemperature06, recordFood, recordLiquid, recordMedication, symptomLog], callbackQueue: .main, completion: nil)
     }
 }

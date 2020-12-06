@@ -39,7 +39,7 @@ struct AppointmentFieldViw: View {
                         .padding()
                 }
                 .frame(width: .infinity, height: .infinity, alignment: .center)
-                .background(Color(UIColor.systemGray6))
+                .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 3)
                 .padding(.leading)

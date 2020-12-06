@@ -19,7 +19,7 @@ struct EditDetailPopup: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color(UIColor.systemGray6))
+                .fill(Color.white)
                 .opacity(0.5)
             VStack {
                 Text(instruction ?? "Edit Details")
@@ -68,7 +68,7 @@ struct ConfirmFieldDelete: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color(UIColor.systemGray6))
+                .fill(Color.white)
             VStack {
                 Text("Are you sure you want to delete this \(deleteItemType)? This action can not be undone.")
                     .font(.body)

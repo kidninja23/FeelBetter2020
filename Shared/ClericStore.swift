@@ -709,8 +709,13 @@ class ClericStore: ObservableObject {
     
     
     //activeCarePlan identifies any current care plan associated with a patient
+    #if targetEnvironment(simulator)
+    let clericStore = OCKStore(name: "ClericStore", type: .inMemory)
+    let clericHealthKitStore = OCKHealthKitPassthroughStore(name: "ClericHealthKitStore", type: .inMemory)
+    #else
     let clericStore = OCKStore(name: "ClericStore", type: .onDisk)
     let clericHealthKitStore = OCKHealthKitPassthroughStore(name: "ClericHealthKitStore", type: .onDisk)
+    #endif
     let coordinator = OCKStoreCoordinator()
     
     lazy private(set) var storeManager: OCKSynchronizedStoreManager = {

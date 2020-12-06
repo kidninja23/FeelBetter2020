@@ -54,7 +54,7 @@ struct CustomListRow: View {
                     .cornerRadius(10)
                 }
                 .frame(width: geo.size.width * 0.95, height: 80, alignment: .trailing)
-                .background(Color(UIColor.systemGray6))
+                .background(Color.white)
                 .cornerRadius(10)
                 }
             GeometryReader { geo in
@@ -78,7 +78,7 @@ struct CustomListRow: View {
                     }.offset(x: 20, y: 0.0)
                 }
                 .frame(width: geo.size.width * 0.95, height: 80, alignment: .trailing)
-                .background(Color(UIColor.systemGray6))
+                .background(Color.white)
                 .cornerRadius(10)
                 .offset(x: position.width + dragDistance.width, y: 0)
                 .gesture(DragGesture().updating($dragDistance, body: { (value, state, transaction) in
@@ -96,7 +96,7 @@ struct CustomListRow: View {
         }
         .frame(width: .infinity, height: 80, alignment: .center).offset(x: 10.0, y: 0.0)
         .shadow(radius: 3)
-        .sheet(isPresented: $showDiagnosis, content: {
+        .sheet(isPresented: $showDiagnosis, onDismiss: { self.profileLinkActive = true }, content : {
             if showMale {
                 MaleBodySectionSelector(child: patient)
             }

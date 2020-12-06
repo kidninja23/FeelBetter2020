@@ -53,7 +53,8 @@ struct ResourceList: View {
                                 
                         }
                     }
-                }.navigationBarTitle("Resources",displayMode: .large)
+                }
+                .navigationBarTitle("Resources",displayMode: .large)
                 FilterMenu(expand: $expandFilter, filter: $filter)
                     .offset(y: 11)
             }
