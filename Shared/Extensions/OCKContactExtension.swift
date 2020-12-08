@@ -9,7 +9,11 @@ import CareKit
 import CareKitUI
 import CareKitStore
 
-extension OCKContact: Hashable {
+extension OCKContact: Hashable, Comparable {
+    public static func < (lhs: OCKContact, rhs: OCKContact) -> Bool {
+        return lhs.name.familyName ?? "" < rhs.name.familyName ?? ""
+    }
+    
     static func == (lhs: OCKContact, rhs: OCKContact) -> Bool {
             return lhs.uuid == rhs.uuid
         }

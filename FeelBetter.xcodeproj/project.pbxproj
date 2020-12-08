@@ -22,6 +22,8 @@
 		594502442547750B0062D482 /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 594502432547750B0062D482 /* CareKitUI */; };
 		5945025225477A970062D482 /* CareKitFHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 5945025125477A970062D482 /* CareKitFHIR */; };
 		5945025425477AA00062D482 /* CareKitFHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 5945025325477AA00062D482 /* CareKitFHIR */; };
+		595566CE257EC99D0019D783 /* MedicalProviderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595566CD257EC99D0019D783 /* MedicalProviderList.swift */; };
+		595566D8257F25270019D783 /* CreateNewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595566D7257F25270019D783 /* CreateNewProvider.swift */; };
 		5970F4EB254B57DA00D69AA0 /* ScreenAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970F4EA254B57DA00D69AA0 /* ScreenAssets.swift */; };
 		5971D55C254767A400672B85 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5971D55B254767A400672B85 /* CareKit */; };
 		5971D55E254767A400672B85 /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = 5971D55D254767A400672B85 /* CareKitStore */; };
@@ -153,6 +155,8 @@
 		592D279F255B457F00F87B70 /* AppointmentFieldViw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentFieldViw.swift; sourceTree = "<group>"; };
 		592D27A5255B582000F87B70 /* EditAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAppointment.swift; sourceTree = "<group>"; };
 		5944028D2568472300501535 /* InsuranceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceDetails.swift; sourceTree = "<group>"; };
+		595566CD257EC99D0019D783 /* MedicalProviderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProviderList.swift; sourceTree = "<group>"; };
+		595566D7257F25270019D783 /* CreateNewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewProvider.swift; sourceTree = "<group>"; };
 		5970F4EA254B57DA00D69AA0 /* ScreenAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssets.swift; sourceTree = "<group>"; };
 		59820455257537EB00DEF81B /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
 		5982046525753B2E00DEF81B /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				592D279F255B457F00F87B70 /* AppointmentFieldViw.swift */,
 				59FD3C872562FB8200F32B60 /* ResourceViewModel.swift */,
 				5925EF09256AB0C200FCBA21 /* InsuranceCard.swift */,
+				595566CD257EC99D0019D783 /* MedicalProviderList.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				5994AEE92565FF7300E2A926 /* EditDetailPopup.swift */,
 				5944028D2568472300501535 /* InsuranceDetails.swift */,
 				59F977C9256BF2D400F58AF6 /* ZonedZiagnosis.swift */,
+				595566D7257F25270019D783 /* CreateNewProvider.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 				599D15532550E82900047499 /* RightArmSymptomDiagnosis.swift in Sources */,
 				59FD3C8E2562FE7400F32B60 /* ResourceList.swift in Sources */,
 				599D152D25506BDC00047499 /* MaleBodySectionSelector.swift in Sources */,
+				595566D8257F25270019D783 /* CreateNewProvider.swift in Sources */,
 				5994AEEA2565FF7300E2A926 /* EditDetailPopup.swift in Sources */,
 				59DB94E32561C6B000268AE8 /* ResourcePage.swift in Sources */,
 				59ECCBF72552FB6F004085D0 /* InsuranceProvider.swift in Sources */,
@@ -692,6 +699,7 @@
 				9668688D2532100900C51694 /* OCKPatientExtension.swift in Sources */,
 				592D27902557893400F87B70 /* MultilineTextField.swift in Sources */,
 				96CA048925221EB000A0A1E5 /* ContentView.swift in Sources */,
+				595566CE257EC99D0019D783 /* MedicalProviderList.swift in Sources */,
 				965BC32F253B8F6E0071735A /* PrivacyPolicyScreen.swift in Sources */,
 				592D279A255B018900F87B70 /* AppointmentData.swift in Sources */,
 				599D153B2550E59700047499 /* ResourcesMenuScreen.swift in Sources */,

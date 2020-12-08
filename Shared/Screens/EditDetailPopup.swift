@@ -55,6 +55,11 @@ struct EditDetailPopup: View {
                 self.notes = someFieldItem
             })
         }
+        .frame(width: .infinity, height: 225, alignment: .center)
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 5)
+        .padding()
     }
 }
 

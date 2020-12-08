@@ -68,7 +68,7 @@ struct CustomListRow: View {
                     //Circle to be replaced With User Profile
                     GeometryReader { geo in
                         if profileLinkActive {
-                            NavigationLink( destination: ChildScreen( showMenu: $showMenu, child: patient)) {
+                            NavigationLink( destination: ChildScreen( showMenu: $showMenu, child: patient).environmentObject(store)) {
                                         ProfileInRowImage(image: ClericStore.shared.profileImages![patient])
                                     }
                             .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9, alignment: .trailing).offset(x: 0, y: geo.size.height * 0.05)

@@ -36,6 +36,7 @@ class ClericStore: ObservableObject {
     @Published var activeCarePlan: [OCKPatient : String] = [OCKPatient : String]()
     @Published var selectedPatient: OCKPatient? = nil
     @Published var activePatient: OCKPatient? = nil
+    @Published var defaultContact = OCKContact(id: "default-contact", givenName: "None", familyName: "None", carePlanUUID: nil)
     
     
     //Replacment values and appending methods will appear here.
@@ -45,6 +46,8 @@ class ClericStore: ObservableObject {
     @Published var insuranceProviderDetails: [String : InsuranceProvider] = [String : InsuranceProvider]()
     @Published var redraw: Bool = false
     @Published var resources: SymptomList
+    @Published var tempPhysician: OCKContact? = nil
+    @Published var tempPhysicianList: [OCKContact] = [OCKContact]()
     
     let childDetailLabels = [
         "FIRST" : "First Name",
@@ -145,7 +148,8 @@ class ClericStore: ObservableObject {
         ActiveGuardian: [OCKContact] = [OCKContact](),
         Children: [OCKPatient] = [OCKPatient](),
         ActivePatient: [OCKPatient] = [OCKPatient](),
-        ActiveAppointment: [AppointmentData] = [AppointmentData]()
+        ActiveAppointment: [AppointmentData] = [AppointmentData](),
+        PhysicianList: [OCKContact] = [OCKContact]()
     ) {
         self.familyDetails = [
             "LAST" : FamilyName,
@@ -155,7 +159,8 @@ class ClericStore: ObservableObject {
             "ACTIVE_GUARDIAN" : ActiveGuardian,
             "CHILDREN" : Children,
             "ACTIVE_PATIENT" : ActivePatient,
-            "ACTIVE_APPOINTMENT" : ActiveAppointment
+            "ACTIVE_APPOINTMENT" : ActiveAppointment,
+            "PHYSICIAN_LIST": PhysicianList
         ]
     }
     ///Add a plan ID to a childs history of events
@@ -703,10 +708,31 @@ class ClericStore: ObservableObject {
             }
             
         }
-        return providerList.removingDuplicates()
+        return providerList.removingDuplicates().sorted() 
     }
     
+    ///Fetch all medical providers and set the value of familyDetails["PHYSICIAN_LIST] as [OCKContact]
+    func UpdatePhysicianList() {
+        var currentPhysicians = fetchAllMedicalProviders()
+        if tempPhysician != nil {
+            currentPhysicians.insert(tempPhysician!, at: 0)
+        }
+        self.familyDetails["PHYSICIAN_LIST"] = currentPhysicians
+    }
     
+    ///Sort the familyDetails["PHYSICIAN_LIST] alphabetically by OCKContact.name.familyName
+    func SortPhysicianList() {
+        let currentPhysicians = fetchAllMedicalProviders()
+        let sortedList = currentPhysicians.sorted()
+        self.familyDetails["PHYSICIAN_LIST"] = sortedList
+    }
+    
+    ///Performs actions of UpdatePhysicianList() and then SortPhysicianList()
+    func UpdateAndSortPhysicianList() {
+        UpdatePhysicianList()
+        SortPhysicianList()
+    }
+        
     
     //activeCarePlan identifies any current care plan associated with a patient
     #if targetEnvironment(simulator)
@@ -846,6 +872,8 @@ class ClericStore: ObservableObject {
         self.appendInsuranceProvider(PrimaryHealth: primaryProvider, AdditionalCoverage: ["Vision" : additionalProvider])
         
         self.appendFamilyDetails(FamilyName: guardian1.name.familyName!, FamilyImage: "FamilyStockImage", PrimaryGuardian: [guardian1], AdditionalGuardian: [guardian2], ActiveGuardian: [guardian1], Children: [child1,child2], ActivePatient: [child1])
+        
+        self.UpdateAndSortPhysicianList()
         
         
         

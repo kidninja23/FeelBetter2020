@@ -134,6 +134,8 @@ struct InsuranceCardBottom: View {
                     HStack {
                         Spacer()
                         Image(systemName: "pencil")
+                            .resizable()
+                            .frame(width: 20, height: 20, alignment: .center)
                             
                     }.frame(width: 225, height: 10)
                 }.padding(.trailing, 12)

@@ -144,7 +144,7 @@ struct FemaleBodySectionSelector: View {
                                     .frame(width: .infinity, height: geo.size.height * 0.31, alignment: .center)
                                     .cornerRadius(5)
                             })
-                            .offset(x: -6, y: -16)
+                            .offset(x: -6, y: -17)
                             .buttonStyle(BodySelectorStyle())
                             .if(HighlightRightLeg){ $0.shadow(color: Color.green, radius: 20)}
                             Button(action: {
@@ -163,7 +163,7 @@ struct FemaleBodySectionSelector: View {
                                     .frame(width: .infinity, height: geo.size.height * 0.31, alignment: .center)
                                     .cornerRadius(5)
                             })
-                            .offset(x: 8, y: -16)
+                            .offset(x: 8, y: -17)
                             .buttonStyle(BodySelectorStyle())
                             .if(HighlightLeftLeg){ $0.shadow(color: Color.green, radius: 20)}
                         }

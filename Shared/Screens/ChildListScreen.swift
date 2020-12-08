@@ -64,7 +64,7 @@ struct ChildPopoutButton: View {
     var child: OCKPatient
     var body: some View {
         
-        NavigationLink(destination: ChildScreen(showMenu: $showMenu, child: child), label: {
+        NavigationLink(destination: ChildScreen(showMenu: $showMenu, child: child).environmentObject(store), label: {
             ZStack (alignment: .leading){
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.white)

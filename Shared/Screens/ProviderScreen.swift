@@ -12,10 +12,67 @@ struct ProviderScreen: View {
     @EnvironmentObject var store: ClericStore
     @State var zipcode: String = ""
     @State var provider: String = "Villiage Pediatrics\n7165 Colfax Avenue\nCumming, Georgia 30040\n(678) 990-3362"
+    @State var availableProviders: [OCKContact] = [OCKContact]()
     @State var populateList: Bool = false
+    @State var showNewProvider: Bool = false
+    @State var makePrimary: Bool = false
+    @State var primaryExists: Bool = false
+    @State var makeSecondary: Bool = false
+    @State var finalSelection: OCKContact? = nil
+    
     //Computed property to separate providers into a 2 column grid
-    var orderedProviders: [[OCKContact]] {
-        let allProviders = store.fetchAllMedicalProviders()
+    @State var orderedProviders: [[OCKContact]] = [[OCKContact]]()
+    
+    var body: some View {
+        VStack {
+            VStack {
+                Text("Insurance Details").bold()
+                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .padding(.top)
+                //Spacer()
+                InsuranceCard()
+                Spacer()
+            }
+            Text("Medical Providers")
+                .bold()
+                .font(.system(size: 32, weight: .bold, design: .rounded))
+
+            VStack (alignment: .leading){
+                ForEach(orderedProviders, id:\.self) { pair in
+                    HStack {
+                        ForEach(pair, id: \.self) { contact in
+                            MedicalProvider(provider: contact)
+                        }
+                    }
+                }
+            }
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
+            Spacer()
+            Button(action: {
+                self.availableProviders = self.store.fetchAllMedicalProviders()
+                self.showNewProvider.toggle()
+                
+            }, label: {
+                HStack {
+                    Spacer()
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .frame(width: 44, height: 44, alignment: .center)
+                        .padding(5)
+                }
+            }).buttonStyle(PlainButtonStyle()).hidden()
+        }.background(Color(UIColor.systemGray6))
+        .onAppear(perform: {
+            self.orderedProviders = OrderProviders()
+        })
+        .sheet(isPresented: $showNewProvider, onDismiss: {self.orderedProviders = OrderProviders()} ,content: {
+            
+        })
+    }
+    
+    func OrderProviders() -> [[OCKContact]] {
+        let allProviders = self.store.fetchAllMedicalProviders()
         let length = allProviders.count
         var pairs = [[OCKContact]]()
         var i = 0
@@ -38,34 +95,6 @@ struct ProviderScreen: View {
             return pairs
         }
         return pairs
-    }
-    
-    var body: some View {
-        VStack {
-            VStack {
-                Text("Insurance Details").bold()
-                    .font(.system(size: 32, weight: .bold, design: .rounded))
-                    .padding()
-                Spacer()
-                InsuranceCard()
-                Spacer()
-            }
-            Text("Medical Providers")
-                .bold()
-                .font(.system(size: 32, weight: .bold, design: .rounded))
-
-            VStack (alignment: .leading){
-                ForEach(orderedProviders, id:\.self) { pair in
-                    HStack {
-                        ForEach(pair, id: \.self) { contact in
-                            MedicalProvider(provider: contact)
-                        }
-                    }
-                }
-            }
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-        }.background(Color(UIColor.systemGray6))
     }
 }
 
