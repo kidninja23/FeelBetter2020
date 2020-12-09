@@ -33,7 +33,7 @@ struct ChildScreen: View {
         let gender = self.store.fetchChildGender(child: child)
         
             VStack {
-                ChildProfileImage(child: child)
+                ChildProfileImage(child: child).environmentObject(store)
                     .padding()
                     .onLongPressGesture {
                         self.preferImageEditor = true
@@ -42,7 +42,7 @@ struct ChildScreen: View {
                 Text(self.store.fetchChildFirstName(child: child)).bold()
                     .font(.system(size: 32, weight: .bold, design: .rounded))
                 ScrollView {
-                    InformationFieldWithDetail(label: "Next Appointment", info: self.store.fetchNextChildAppointmentString(child: child), detailView: AppointmentsScreen())
+                    InformationFieldWithDetail(label: "Next Appointment", info: self.store.fetchNextChildAppointmentString(child: child), detailView: AppointmentsScreen().environmentObject(store))
                     InformationField(label: "Birthdate", info: self.store.fetchChildBirthdate(child: child))
                     InformationField(label: "Gender", info: self.store.fetchChildGender(child: child))
                     if self.store.childDetailExists(child: child, detail: "HEIGHT") {
@@ -73,32 +73,29 @@ struct ChildScreen: View {
                     switch gender {
                     case "Male":
                         ChildProfileSheetButton("New Event") {
-                            MaleBodySectionSelector(child: child)
+                            MaleBodySectionSelector(child: child).environmentObject(store)
                         }
                         
                     case "Female":
                         ChildProfileSheetButton("New Event") {
-                            FemaleBodySectionSelector(child: child)
+                            FemaleBodySectionSelector(child: child).environmentObject(store)
                         }
                     
                     default:
                         ChildProfileSheetButton("New Event") {
-                            MaleBodySectionSelector(child: child)
+                            MaleBodySectionSelector(child: child).environmentObject(store)
                         }
                     }
                 
                 Spacer()
-            }.if(preferImageEditor) { $0.sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
+            }.if(preferImageEditor) { $0.sheet(isPresented: $showingImagePicker, onDismiss: {
+                loadImage()
+                if store.childDetails2[child] != nil {
+                    store.childDetails2[child]!["PROFILE_IMAGE"] = image
+                }
+            }, content: {
                 ImagePicker(selectedImage: self.$inputImage)
             })}
-            /*.sheet(isPresented: $showSheet, content: {
-                if self.sheetSelection == .diagnosis {
-                    DiagnosisScreen(showDiagnosis: $showSheet)
-                }
-                if self.sheetSelection == .carePlan {
-                    FeverViewWrapper()
-                }
-            })*/
             .background(Color(UIColor.systemTeal)).frame(width: .infinity, height: .infinity, alignment: .center)
             .navigationBarTitle("",displayMode: .inline)
             .navigationBarItems(
@@ -122,15 +119,29 @@ struct ChildScreen: View {
 }
 
 struct ChildProfileImage: View {
+    @EnvironmentObject var store: ClericStore
     var child: OCKPatient
     var body: some View {
-        
-        Image(ClericStore.shared.fetchProfileImage(child: child))
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .clipShape(Circle())
-            .shadow(radius: 5)
-            .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+        if store.childDetails2[child] != nil {
+            let theImage = store.childDetails2[child]!["PROFILE_IMAGE"]
+            if let theImage = theImage as? String {
+                Image(theImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                    .frame(width: 250, height: 250, alignment: .center)
+            } else {
+                (theImage as! Image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                    .frame(width: 250, height: 250, alignment: .center)
+            }
+        }
     }
 }
 

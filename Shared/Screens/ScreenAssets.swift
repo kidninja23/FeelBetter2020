@@ -10,6 +10,7 @@ import SwiftUI
 import CareKit
 import CareKitStore
 
+///Various UI elements for team to use in designing the UI. Project releated and not in final app version. 
 struct ScreenAssets: View {
     var guardian = ClericStore.shared.activeGuardian!
     

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ResourceList: View {
+    @EnvironmentObject var store: ClericStore
     @ObservedObject var viewModel = ResourceViewModel()
     @State var filter: BodyZone = .all
     @State var expandFilter: Bool = false
@@ -46,7 +47,7 @@ struct ResourceList: View {
                             id: \.self) { title in
                             let resource = viewModel.filteredData.first(where: { $0.title == title})!
                             NavigationLink(
-                                destination: ResourcePage(details: resource),
+                                destination: ResourcePage(details: resource).environmentObject(store),
                                 label: {
                                     Text(title)
                                 })
@@ -149,6 +150,6 @@ struct FilterMenu: View {
 struct ResourceList_Previews: PreviewProvider {
     static var myViewModel = ResourceViewModel()
     static var previews: some View {
-        ResourceList(viewModel: myViewModel)
+        ResourceList(viewModel: myViewModel).environmentObject(ClericStore.shared)
     }
 }

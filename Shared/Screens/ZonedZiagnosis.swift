@@ -21,7 +21,6 @@ struct ZonedZiagnosis: View {
     
     var child: OCKPatient
     
-    
     let imageSymptoms: [BodyZone : [String]] = [
         .all: [""],
         .head: ["BrokenBone", "SoreThroat", "Headache", "RunnyNose", "EarInfection", "PinkEye"],
@@ -31,6 +30,7 @@ struct ZonedZiagnosis: View {
         .whole: ["Aches", "Fever", "Rash", "Fatigue", "Swelling", "Chills"],
         .illness: ["Covid", "Flu", "Strep", "Cold", "Rotovirus", "HandFootMouth"]
     ]
+    
     let symptomResourceTitle: [String: String] = [
         
         "StomachAche2" : "Stomach Ache",
@@ -81,23 +81,23 @@ struct ZonedZiagnosis: View {
                 VStack {
                     HStack {
                         Spacer()
-                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![0], resourceName: symptomResourceTitle[currentOptions![0]]!)
+                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![0], resourceName: symptomResourceTitle[currentOptions![0]]!).environmentObject(store)
                         Spacer()
-                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![1], resourceName: symptomResourceTitle[currentOptions![1]]!)
+                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![1], resourceName: symptomResourceTitle[currentOptions![1]]!).environmentObject(store)
                         Spacer()
                     }.padding(.top, 10)
                     HStack {
                         Spacer()
-                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![2], resourceName: symptomResourceTitle[currentOptions![2]]!)
+                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![2], resourceName: symptomResourceTitle[currentOptions![2]]!).environmentObject(store)
                         Spacer()
-                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![3], resourceName: symptomResourceTitle[currentOptions![3]]!)
+                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![3], resourceName: symptomResourceTitle[currentOptions![3]]!).environmentObject(store)
                         Spacer()
                     }
                     HStack {
                         Spacer()
-                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![4], resourceName: symptomResourceTitle[currentOptions![4]]!)
+                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![4], resourceName: symptomResourceTitle[currentOptions![4]]!).environmentObject(store)
                         Spacer()
-                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![5], resourceName: symptomResourceTitle[currentOptions![5]]!)
+                        MultiActionDiseaseButton(symptomSelected: $symptomSelected, selectionIs: $selectionIs, image: currentOptions![5], resourceName: symptomResourceTitle[currentOptions![5]]!).environmentObject(store)
                         Spacer()
                     }
                     HStack {
@@ -152,7 +152,7 @@ struct ZonedZiagnosis: View {
             })
             .if(preferCarePlan) {
                 $0.sheet(isPresented: $showCarePlan, onDismiss: {self.preferCarePlan = false}, content: {
-                    FeverViewWrapper()
+                    FeverViewWrapper().environmentObject(store)
                 })
             }
             
@@ -208,7 +208,7 @@ struct MultiActionDiseaseButton: View {
         }
         .sheet(isPresented: $showResource, content: {
             if resourceToShowDetail != nil {
-                ResourcePage(details: resourceToShowDetail!)
+                ResourcePage(details: resourceToShowDetail!).environmentObject(store)
             } else {
                 Text("No additional details.")
             }

@@ -107,7 +107,7 @@ struct MedicalProviderList: View {
             self.selectedProvider = self.availableProviders[0]
             
         }, content: {
-            CreateNewProvider(availableProviders: availableProviders)
+            CreateNewProvider(availableProviders: availableProviders).environmentObject(store)
         })
         .alert(isPresented: $showAlert, content: {
             Alert(title: Text("Primary Previously Assigned"), message: Text("Each child may only be assigned one primary physician. Assigning this physician as a primary will replace the previously assigned physician."), primaryButton: Alert.Button.destructive(Text("Replace"), action: {

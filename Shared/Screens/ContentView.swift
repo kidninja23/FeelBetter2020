@@ -24,6 +24,7 @@ struct ContentView: View {
         return GeometryReader { geometry in
             ZStack (alignment: .leading) {
                 MainScreen(showMenu: self.$showMenu)
+                    .environmentObject(store)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .offset(x: self.showMenu ? geometry.size.width/2 : 0)
                     .disabled(self.showMenu ? true : false)

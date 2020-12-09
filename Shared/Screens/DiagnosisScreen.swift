@@ -9,7 +9,7 @@ import SwiftUI
 import CareKit
 import CareKitUI
 import CareKitStore
-
+///Depricated
 struct DiagnosisScreen: View {
     @EnvironmentObject var store: ClericStore
     @Binding var showDiagnosis: Bool

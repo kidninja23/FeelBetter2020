@@ -29,8 +29,7 @@ struct ProviderScreen: View {
                 Text("Insurance Details").bold()
                     .font(.system(size: 32, weight: .bold, design: .rounded))
                     .padding(.top)
-                //Spacer()
-                InsuranceCard()
+                InsuranceCard().environmentObject(store)
                 Spacer()
             }
             Text("Medical Providers")
@@ -66,9 +65,9 @@ struct ProviderScreen: View {
         .onAppear(perform: {
             self.orderedProviders = OrderProviders()
         })
-        .sheet(isPresented: $showNewProvider, onDismiss: {self.orderedProviders = OrderProviders()} ,content: {
+        //.sheet(isPresented: $showNewProvider, onDismiss: {self.orderedProviders = OrderProviders()} ,content: {
             
-        })
+        //})
     }
     
     func OrderProviders() -> [[OCKContact]] {

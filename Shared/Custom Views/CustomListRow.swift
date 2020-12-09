@@ -19,16 +19,16 @@ struct CustomListRow: View {
     @State var profileLinkActive = true
     @Binding var showMenu: Bool
     
-    var patient: OCKPatient
+    var child: OCKPatient
     
     
     var body: some View {
-        
+        let image = store.childDetails2[child]!["PROFILE_IMAGE"]
         ZStack {
             GeometryReader { geo in
                 HStack{
                     Button(action: {
-                        let gender = store.fetchChildGender(child: patient)
+                        let gender = store.fetchChildGender(child: child)
                         if gender == "Male" {
                             self.showMale = true
                             self.showFemale = false
@@ -59,7 +59,7 @@ struct CustomListRow: View {
                 }
             GeometryReader { geo in
                 HStack {
-                    Text("\(patient.name.givenName!)")
+                    Text("\(child.name.givenName!)")
                         .bold()
                         .font(.system(size: 30, weight: .bold, design: .rounded))
                         .padding()
@@ -68,12 +68,12 @@ struct CustomListRow: View {
                     //Circle to be replaced With User Profile
                     GeometryReader { geo in
                         if profileLinkActive {
-                            NavigationLink( destination: ChildScreen( showMenu: $showMenu, child: patient).environmentObject(store)) {
-                                        ProfileInRowImage(image: ClericStore.shared.profileImages![patient])
+                            NavigationLink( destination: ChildScreen( showMenu: $showMenu, child: child).environmentObject(store)) {
+                                ProfileInRowImage(child: child, image: image).environmentObject(store)
                                     }
                             .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9, alignment: .trailing).offset(x: 0, y: geo.size.height * 0.05)
                         } else {
-                            ProfileInRowImage(image: ClericStore.shared.profileImages![patient]).frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9, alignment: .trailing).offset(x: 0, y: geo.size.height * 0.05)
+                            ProfileInRowImage(child: child, image: image).frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9, alignment: .trailing).offset(x: 0, y: geo.size.height * 0.05)
                         }
                     }.offset(x: 20, y: 0.0)
                 }
@@ -98,10 +98,10 @@ struct CustomListRow: View {
         .shadow(radius: 3)
         .sheet(isPresented: $showDiagnosis, onDismiss: { self.profileLinkActive = true }, content : {
             if showMale {
-                MaleBodySectionSelector(child: patient)
+                MaleBodySectionSelector(child: child).environmentObject(store)
             }
             if showFemale {
-                FemaleBodySectionSelector(child: patient)
+                FemaleBodySectionSelector(child: child).environmentObject(store)
             }
         })
     }
@@ -109,23 +109,47 @@ struct CustomListRow: View {
 }
 
 struct ProfileInRowImage: View {
-    let image: String?
+    @EnvironmentObject var store: ClericStore
+    @State var child: OCKPatient
+    @State var image: Any?
     var body: some View {
-        Image(image ?? "default_profile")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .clipShape(Circle())
-            .shadow(radius: 5)
-            .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-            .frame(width: 80, height: 80, alignment: .center)
-            
+        if store.childDetails2[child] != nil {
+            let theImage = store.childDetails2[child]!["PROFILE_IMAGE"]
+            if let theImage = theImage as? String {
+                if !theImage.isEmpty {
+                    Image(theImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
+                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                        .frame(width: 80, height: 80, alignment: .center)
+                } else {
+                    Image("default_profile")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
+                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                        .frame(width: 80, height: 80, alignment: .center)
+                }
+            } else {
+                (theImage as! Image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                    .frame(width: 80, height: 80, alignment: .center)
+            }
+        }
     }
 }
 #if DEBUG
 struct CustomListRow_Previews: PreviewProvider {
     static var myPatient = OCKPatient(id: "jb", givenName: "Fred", familyName: "B")
     static var previews: some View {
-        CustomListRow(showMenu: .constant(false), patient: myPatient).environmentObject(ClericStore.shared)
+        CustomListRow(showMenu: .constant(false), child: myPatient).environmentObject(ClericStore.shared)
     }
 }
 #endif

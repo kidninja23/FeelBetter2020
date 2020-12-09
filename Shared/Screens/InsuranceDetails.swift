@@ -46,11 +46,14 @@ struct InsuranceDetails: View {
                     EditableLabeledData(label: "Insurance:", saveNeeded: $saveNeeded, detail: $insuranceType)
                     EditableLabeledData(label: "RX Number:", saveNeeded: $saveNeeded, detail: $rxNumber)
                 }
-                .frame(width: .infinity, height: geo.size.height * 0.85, alignment: .center)
+                .frame(width: .infinity, height: geo.size.height * 0.8, alignment: .center)
                 Spacer()
                 if saveNeeded {
                     HStack {
-                        Button(action: {}, label: {
+                        Button(action: {
+                            UpdateInsuranceProvider()
+                            self.presentationMode.wrappedValue.dismiss()
+                        }, label: {
                             Text("Save").font(.title2)
                         }).buttonStyle(CarePlanStyleCompact())
                         .padding(.leading)
@@ -61,7 +64,9 @@ struct InsuranceDetails: View {
                         }).buttonStyle(CancelStyle())
                         .padding(.trailing)
                     }.padding(.trailing)
+                    .padding(.bottom)
                 }
+                
             }
             .onAppear(perform: {
                 providerName = insurance.ProviderName
@@ -77,6 +82,22 @@ struct InsuranceDetails: View {
                 rxNumber = insurance.RXnumber
             })
         }
+    }
+    //Current version does not handle secondary insurance types
+    func UpdateInsuranceProvider() {
+        let provider = self.insurance
+        provider.ProviderName = self.providerName
+        provider.HealthPlan = self.healthPlan
+        provider.MemberID = self.memberID
+        provider.GroupNumber = self.groupNumber
+        provider.ProviderContact = self.providerContact
+        provider.MemberContact = self.memberContact
+        provider.ClaimsAddress = self.claimsAddress
+        provider.Dependents = self.dependents
+        provider.InsuranceType = self.insuranceType
+        provider.PlanTitle = self.planTitle
+        provider.RXnumber = self.rxNumber
+        store.insuranceProviderDetails["MEDICAL"] = provider
     }
 }
 

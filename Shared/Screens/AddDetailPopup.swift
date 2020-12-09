@@ -60,7 +60,7 @@ struct AddDetailPopup_Previews: PreviewProvider {
     static var myInstruction = "Enter a new Medical Condition"
     static var myEvent = "Condition"
     static var previews: some View {
-        AddDetailPopup(someField: .constant(myField), showAddDetail: .constant(false), instruction: myInstruction, event: myEvent)
+        AddDetailPopup(someField: .constant(myField), showAddDetail: .constant(false), instruction: myInstruction, event: myEvent).environmentObject(ClericStore.shared)
     }
 }
 #endif

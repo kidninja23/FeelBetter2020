@@ -26,6 +26,7 @@ struct ChildListScreen: View {
                     ScrollView {
                         ForEach(childList!, id: \.self) {child in
                             ChildPopoutButton(child: child)
+                                .environmentObject(store)
                                 .padding()
                         }
                     }.frame(width: .infinity, height: geo.size.height * 0.7, alignment: .center)
@@ -63,20 +64,40 @@ struct ChildPopoutButton: View {
     @State var showMenu: Bool = false
     var child: OCKPatient
     var body: some View {
-        
+        let image = self.store.fetchProfileImage(child: child)
         NavigationLink(destination: ChildScreen(showMenu: $showMenu, child: child).environmentObject(store), label: {
             ZStack (alignment: .leading){
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.white)
                     .shadow(radius: 5)
                 HStack {
-                    Image(self.store.fetchProfileImage(child: child))
+                    if let image = image as? String {
+                        if !image.isEmpty {
+                            Image(image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipShape(Circle())
+                                    .shadow(radius: 5)
+                                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                    .frame(width: 180, height: 180, alignment: .center)
+                        } else {
+                            Image("default_profile")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .clipShape(Circle())
                                 .shadow(radius: 5)
                                 .overlay(Circle().stroke(Color.gray, lineWidth: 1))
                                 .frame(width: 180, height: 180, alignment: .center)
+                        }
+                    } else {
+                        (image as! Image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                            .shadow(radius: 5)
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                            .frame(width: 180, height: 180, alignment: .center)
+                    }
                     Spacer()
                     VStack {
                         Text("\(child.name.givenName!) \(child.name.familyName!)")

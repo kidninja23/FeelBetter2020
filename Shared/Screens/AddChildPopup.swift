@@ -308,7 +308,7 @@ struct AddChildPopup: View {
                         .ignoresSafeArea()
                 }
                 if showAddCondition {
-                    AddDetailPopup(someField: self.$conditions, showAddDetail: self.$showAddCondition, instruction: "Enter a new medical condtion.", event: "Condition")
+                    AddDetailPopup(someField: self.$conditions, showAddDetail: self.$showAddCondition, instruction: "Enter a new medical condtion.", event: "Condition").environmentObject(store)
                 }
                 ZStack {
                     if showEditCondition {
@@ -319,7 +319,7 @@ struct AddChildPopup: View {
                     }
                 }
                 if showAddAllergy {
-                    AddDetailPopup(someField: self.$allergies, showAddDetail: self.$showAddAllergy, instruction: "Enter an allergy.", event: "Allergy")
+                    AddDetailPopup(someField: self.$allergies, showAddDetail: self.$showAddAllergy, instruction: "Enter an allergy.", event: "Allergy").environmentObject(store)
                 }
                 ZStack {
                     if showEditAllergy {

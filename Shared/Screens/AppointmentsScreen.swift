@@ -81,7 +81,7 @@ struct AppointmentsScreen: View {
                 HStack {
                     Spacer()
                     AppointmentSheetButton(imageName: "AddAppointment") {
-                        AddAppointment()
+                        AddAppointment().environmentObject(store)
                     }
                     .padding(.trailing)
                 }
@@ -94,7 +94,7 @@ struct AppointmentsScreen: View {
                     RoundedRectangle(cornerRadius: 25.0)
                         .fill(Color.white)
                         .opacity(0.3)
-                    EditAppointment(appointment: store.familyDetails["ACTIVE_APPOINTMENT"]! as! AppointmentData, showEditor: $showEditor)
+                    EditAppointment(appointment: store.familyDetails["ACTIVE_APPOINTMENT"]! as! AppointmentData, showEditor: $showEditor).environmentObject(store)
                 }
             }
 

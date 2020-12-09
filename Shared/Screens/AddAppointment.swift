@@ -108,14 +108,33 @@ struct ChildSelector: View {
             }
             
         }, label: {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
-                .shadow(radius: 5)
-                .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                .frame(width: 80, height: 80, alignment: .center)
-            
+            if let image = image as? String {
+                if !image.isEmpty {
+                    Image(image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
+                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                        .frame(width: 80, height: 80, alignment: .center)
+                } else {
+                    Image("default_profile")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
+                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                        .frame(width: 80, height: 80, alignment: .center)
+                }
+            } else {
+                (image as! Image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                    .frame(width: 80, height: 80, alignment: .center)
+            }
         })
         .frame(width: 110, height: 110, alignment: .center)
         .if(shadow) { $0.shadow(color: Color.blue, radius: 8) }

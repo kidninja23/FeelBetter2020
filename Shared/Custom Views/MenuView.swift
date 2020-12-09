@@ -12,17 +12,18 @@ enum ActiveMenu {
 }
 
 struct MenuView: View {
+    @EnvironmentObject var store: ClericStore
     @State private var menuSelection: ActiveMenu?
     
     var body: some View {
         NavigationView {
         VStack (alignment: .leading){
             MenuSheetButton("ProfileCustomGray", "Profile") {
-                ProfileScreen(guardian: ClericStore.shared.activeGuardian!)
+                ProfileScreen(guardian: ClericStore.shared.activeGuardian!).environmentObject(store)
             }
             .padding(.top, 80)
             MenuSheetButton("MedicalProvider", "Provider") {
-                ProviderScreen()
+                ProviderScreen().environmentObject(store)
             }
            .padding(.top, 20)
             MenuSheetButton("SettingsCustomGray", "Settings") {

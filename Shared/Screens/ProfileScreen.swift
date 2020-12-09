@@ -33,15 +33,15 @@ struct ProfileScreen: View {
                 .font(.system(size: 32, weight: .bold, design: .rounded))
             
             ScrollView {
-                InformationFieldWithDetail(label: "Children", info: store.fetchAllChildrenString(), detailView: ChildListScreen())
-                InformationFieldWithDetail(label: "Next Appointment", info: appointmentData, detailView: AppointmentsScreen())
-                InformationFieldWithDetail(label: "Provider Details", info: store.fetchBasicInsuranceInfo(), detailView: ProviderScreen())
+                InformationFieldWithDetail(label: "Children", info: store.fetchAllChildrenString(), detailView: ChildListScreen().environmentObject(store))
+                InformationFieldWithDetail(label: "Next Appointment", info: appointmentData, detailView: AppointmentsScreen().environmentObject(store))
+                InformationFieldWithDetail(label: "Provider Details", info: store.fetchBasicInsuranceInfo(), detailView: ProviderScreen().environmentObject(store))
                 
                 
             }.frame(width: .infinity, height: 300, alignment: .center)
             Spacer()
         }
-        .if(sheetsOn) { $0.sheet(isPresented: $showAvatarChooser, onDismiss: {self.sheetsOn = false} , content: {GuardianAvatarSelectionScreen(guardian: guardian, showAvatarChooser: $showAvatarChooser)})
+        .if(sheetsOn) { $0.sheet(isPresented: $showAvatarChooser, onDismiss: {self.sheetsOn = false} , content: {GuardianAvatarSelectionScreen(guardian: guardian, showAvatarChooser: $showAvatarChooser).environmentObject(store)})
         }
         .background(Color(UIColor.systemTeal))
     }

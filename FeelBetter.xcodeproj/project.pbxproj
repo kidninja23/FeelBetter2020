@@ -31,16 +31,10 @@
 		59820456257537EB00DEF81B /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59820455257537EB00DEF81B /* TemperatureViewController.swift */; };
 		5982047E25753B7200DEF81B /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5982046E25753B2E00DEF81B /* ResearchKit.framework */; };
 		5982047F25753B7200DEF81B /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5982046E25753B2E00DEF81B /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		598F3EAB25806007005ABBDF /* SymptomList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB94EE2561D19E00268AE8 /* SymptomList.swift */; };
 		5994AEE42565DD7A00E2A926 /* AddDetailPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994AEE32565DD7A00E2A926 /* AddDetailPopup.swift */; };
 		5994AEEA2565FF7300E2A926 /* EditDetailPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994AEE92565FF7300E2A926 /* EditDetailPopup.swift */; };
 		599D152D25506BDC00047499 /* MaleBodySectionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D152C25506BDC00047499 /* MaleBodySectionSelector.swift */; };
-		599D153B2550E59700047499 /* ResourcesMenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D153A2550E59700047499 /* ResourcesMenuScreen.swift */; };
-		599D15412550E7E000047499 /* HeadSymptomDiagnosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D15402550E7E000047499 /* HeadSymptomDiagnosis.swift */; };
-		599D15472550E80C00047499 /* LeftArmSymptomDiagnosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D15462550E80C00047499 /* LeftArmSymptomDiagnosis.swift */; };
-		599D154D2550E81B00047499 /* TorsoSymptomDiagnosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D154C2550E81B00047499 /* TorsoSymptomDiagnosis.swift */; };
-		599D15532550E82900047499 /* RightArmSymptomDiagnosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D15522550E82900047499 /* RightArmSymptomDiagnosis.swift */; };
-		599D15592550E84300047499 /* LeftLegSymptomDiagnosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D15582550E84300047499 /* LeftLegSymptomDiagnosis.swift */; };
-		599D155F2550E85900047499 /* RightLegSymptomDiagnosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D155E2550E85900047499 /* RightLegSymptomDiagnosis.swift */; };
 		59DB94D7255F4D1F00268AE8 /* ChildListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB94D6255F4D1F00268AE8 /* ChildListScreen.swift */; };
 		59DB94DD2560410300268AE8 /* AddChildPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB94DC2560410300268AE8 /* AddChildPopup.swift */; };
 		59DB94E32561C6B000268AE8 /* ResourcePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB94E22561C6B000268AE8 /* ResourcePage.swift */; };
@@ -55,7 +49,6 @@
 		59FD3C8E2562FE7400F32B60 /* ResourceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD3C8D2562FE7400F32B60 /* ResourceList.swift */; };
 		961302FB2538B5D800ED074D /* FeverDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961302FA2538B5D800ED074D /* FeverDailyViewController.swift */; };
 		9649BA9E253DD62600F91EE5 /* FeverViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649BA9D253DD62600F91EE5 /* FeverViewWrapper.swift */; };
-		9649BAAC253DEBA900F91EE5 /* FeverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649BAAB253DEBA900F91EE5 /* FeverView.swift */; };
 		9649BAB2253DEE4900F91EE5 /* DailyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649BAB1253DEE4900F91EE5 /* DailyPageView.swift */; };
 		965BC315253B63CB0071735A /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC314253B63CB0071735A /* ProfileScreen.swift */; };
 		965BC31B253B63F50071735A /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC31A253B63F50071735A /* SettingsScreen.swift */; };
@@ -76,13 +69,10 @@
 		96CA048725221EB000A0A1E5 /* FeelBetterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA045E25221EAF00A0A1E5 /* FeelBetterApp.swift */; };
 		96CA048825221EB000A0A1E5 /* FeelBetterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA045E25221EAF00A0A1E5 /* FeelBetterApp.swift */; };
 		96CA048925221EB000A0A1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA045F25221EAF00A0A1E5 /* ContentView.swift */; };
-		96CA048A25221EB000A0A1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA045F25221EAF00A0A1E5 /* ContentView.swift */; };
 		96CA048B25221EB000A0A1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CA046025221EB000A0A1E5 /* Assets.xcassets */; };
 		96CA048C25221EB000A0A1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CA046025221EB000A0A1E5 /* Assets.xcassets */; };
 		96E822A72530E74F00117EF4 /* ClericStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E822A62530E74F00117EF4 /* ClericStore.swift */; };
 		96E822A82530E74F00117EF4 /* ClericStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E822A62530E74F00117EF4 /* ClericStore.swift */; };
-		96E822B32530EA8F00117EF4 /* CreatePatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E822B22530EA8F00117EF4 /* CreatePatientView.swift */; };
-		96E822B42530EA8F00117EF4 /* CreatePatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E822B22530EA8F00117EF4 /* CreatePatientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,13 +153,6 @@
 		5994AEE32565DD7A00E2A926 /* AddDetailPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailPopup.swift; sourceTree = "<group>"; };
 		5994AEE92565FF7300E2A926 /* EditDetailPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailPopup.swift; sourceTree = "<group>"; };
 		599D152C25506BDC00047499 /* MaleBodySectionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaleBodySectionSelector.swift; sourceTree = "<group>"; };
-		599D153A2550E59700047499 /* ResourcesMenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesMenuScreen.swift; sourceTree = "<group>"; };
-		599D15402550E7E000047499 /* HeadSymptomDiagnosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadSymptomDiagnosis.swift; sourceTree = "<group>"; };
-		599D15462550E80C00047499 /* LeftArmSymptomDiagnosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftArmSymptomDiagnosis.swift; sourceTree = "<group>"; };
-		599D154C2550E81B00047499 /* TorsoSymptomDiagnosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorsoSymptomDiagnosis.swift; sourceTree = "<group>"; };
-		599D15522550E82900047499 /* RightArmSymptomDiagnosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightArmSymptomDiagnosis.swift; sourceTree = "<group>"; };
-		599D15582550E84300047499 /* LeftLegSymptomDiagnosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftLegSymptomDiagnosis.swift; sourceTree = "<group>"; };
-		599D155E2550E85900047499 /* RightLegSymptomDiagnosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightLegSymptomDiagnosis.swift; sourceTree = "<group>"; };
 		59DB94D6255F4D1F00268AE8 /* ChildListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildListScreen.swift; sourceTree = "<group>"; };
 		59DB94DC2560410300268AE8 /* AddChildPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildPopup.swift; sourceTree = "<group>"; };
 		59DB94E22561C6B000268AE8 /* ResourcePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcePage.swift; sourceTree = "<group>"; };
@@ -184,7 +167,6 @@
 		59FD3C8D2562FE7400F32B60 /* ResourceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceList.swift; sourceTree = "<group>"; };
 		961302FA2538B5D800ED074D /* FeverDailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeverDailyViewController.swift; sourceTree = "<group>"; };
 		9649BA9D253DD62600F91EE5 /* FeverViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeverViewWrapper.swift; sourceTree = "<group>"; };
-		9649BAAB253DEBA900F91EE5 /* FeverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeverView.swift; sourceTree = "<group>"; };
 		9649BAB1253DEE4900F91EE5 /* DailyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPageView.swift; sourceTree = "<group>"; };
 		965BC314253B63CB0071735A /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		965BC31A253B63F50071735A /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
@@ -215,7 +197,6 @@
 		96CA048425221EB000A0A1E5 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		96CA048625221EB000A0A1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E822A62530E74F00117EF4 /* ClericStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClericStore.swift; sourceTree = "<group>"; };
-		96E822B22530EA8F00117EF4 /* CreatePatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePatientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,13 +243,15 @@
 		592D27742555AE2000F87B70 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				9668688625320E7B00C51694 /* CustomListRow.swift */,
-				592D27752555AE4100F87B70 /* InformationFieldWithDetail.swift */,
-				592D277F2555E26600F87B70 /* InformationField.swift */,
 				592D279F255B457F00F87B70 /* AppointmentFieldViw.swift */,
-				59FD3C872562FB8200F32B60 /* ResourceViewModel.swift */,
+				9668688625320E7B00C51694 /* CustomListRow.swift */,
+				592D277F2555E26600F87B70 /* InformationField.swift */,
+				592D27752555AE4100F87B70 /* InformationFieldWithDetail.swift */,
 				5925EF09256AB0C200FCBA21 /* InsuranceCard.swift */,
 				595566CD257EC99D0019D783 /* MedicalProviderList.swift */,
+				965BC320253B65AC0071735A /* MenuView.swift */,
+				59FD3C872562FB8200F32B60 /* ResourceViewModel.swift */,
+				59DB94E82561CB9E00268AE8 /* SymptomResources.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -291,6 +274,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		598F3EB525806282005ABBDF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				96E822A62530E74F00117EF4 /* ClericStore.swift */,
+				59DB94EE2561D19E00268AE8 /* SymptomList.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		961302F92538B5C800ED074D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,8 +295,8 @@
 		9649BA9C253DD60C00F91EE5 /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
-				9649BA9D253DD62600F91EE5 /* FeverViewWrapper.swift */,
 				9649BAB1253DEE4900F91EE5 /* DailyPageView.swift */,
+				9649BA9D253DD62600F91EE5 /* FeverViewWrapper.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -312,36 +304,30 @@
 		9668688E2532137B00C51694 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				9668688825320ECD00C51694 /* DiagnosisScreen.swift */,
-				9668688425320B2D00C51694 /* MainScreen.swift */,
-				9668688F253213AD00C51694 /* ChildScreen.swift */,
-				965BC314253B63CB0071735A /* ProfileScreen.swift */,
-				965BC31A253B63F50071735A /* SettingsScreen.swift */,
-				965BC32E253B8F6E0071735A /* PrivacyPolicyScreen.swift */,
-				965BC334253C93B40071735A /* ProviderScreen.swift */,
-				965BC33A253C97DA0071735A /* GuardianAvatarSelectionScreen.swift */,
-				5970F4EA254B57DA00D69AA0 /* ScreenAssets.swift */,
-				599D152C25506BDC00047499 /* MaleBodySectionSelector.swift */,
-				59ECCBF02551EACD004085D0 /* FemaleBodySectionSelector.swift */,
-				599D153A2550E59700047499 /* ResourcesMenuScreen.swift */,
-				599D15402550E7E000047499 /* HeadSymptomDiagnosis.swift */,
-				599D15462550E80C00047499 /* LeftArmSymptomDiagnosis.swift */,
-				599D154C2550E81B00047499 /* TorsoSymptomDiagnosis.swift */,
-				599D15522550E82900047499 /* RightArmSymptomDiagnosis.swift */,
-				599D15582550E84300047499 /* LeftLegSymptomDiagnosis.swift */,
-				599D155E2550E85900047499 /* RightLegSymptomDiagnosis.swift */,
-				59E3EA6F25539821007F3447 /* AppointmentsScreen.swift */,
 				592D278925577F2D00F87B70 /* AddAppointment.swift */,
-				592D27A5255B582000F87B70 /* EditAppointment.swift */,
-				59DB94D6255F4D1F00268AE8 /* ChildListScreen.swift */,
 				59DB94DC2560410300268AE8 /* AddChildPopup.swift */,
-				59DB94E22561C6B000268AE8 /* ResourcePage.swift */,
-				59FD3C8D2562FE7400F32B60 /* ResourceList.swift */,
 				5994AEE32565DD7A00E2A926 /* AddDetailPopup.swift */,
-				5994AEE92565FF7300E2A926 /* EditDetailPopup.swift */,
-				5944028D2568472300501535 /* InsuranceDetails.swift */,
-				59F977C9256BF2D400F58AF6 /* ZonedZiagnosis.swift */,
+				59E3EA6F25539821007F3447 /* AppointmentsScreen.swift */,
+				59DB94D6255F4D1F00268AE8 /* ChildListScreen.swift */,
+				9668688F253213AD00C51694 /* ChildScreen.swift */,
+				96CA045F25221EAF00A0A1E5 /* ContentView.swift */,
 				595566D7257F25270019D783 /* CreateNewProvider.swift */,
+				9668688825320ECD00C51694 /* DiagnosisScreen.swift */,
+				592D27A5255B582000F87B70 /* EditAppointment.swift */,
+				5994AEE92565FF7300E2A926 /* EditDetailPopup.swift */,
+				59ECCBF02551EACD004085D0 /* FemaleBodySectionSelector.swift */,
+				965BC33A253C97DA0071735A /* GuardianAvatarSelectionScreen.swift */,
+				5944028D2568472300501535 /* InsuranceDetails.swift */,
+				9668688425320B2D00C51694 /* MainScreen.swift */,
+				599D152C25506BDC00047499 /* MaleBodySectionSelector.swift */,
+				965BC32E253B8F6E0071735A /* PrivacyPolicyScreen.swift */,
+				965BC314253B63CB0071735A /* ProfileScreen.swift */,
+				965BC334253C93B40071735A /* ProviderScreen.swift */,
+				59FD3C8D2562FE7400F32B60 /* ResourceList.swift */,
+				59DB94E22561C6B000268AE8 /* ResourcePage.swift */,
+				5970F4EA254B57DA00D69AA0 /* ScreenAssets.swift */,
+				965BC31A253B63F50071735A /* SettingsScreen.swift */,
+				59F977C9256BF2D400F58AF6 /* ZonedZiagnosis.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -350,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				5982046525753B2E00DEF81B /* ResearchKit.xcodeproj */,
-				96E822A42530E6C200117EF4 /* OCK WIP */,
 				96CA045D25221EAF00A0A1E5 /* Shared */,
 				96CA046725221EB000A0A1E5 /* iOS */,
 				96CA046E25221EB000A0A1E5 /* macOS */,
@@ -364,20 +349,14 @@
 		96CA045D25221EAF00A0A1E5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				592D27742555AE2000F87B70 /* Custom Views */,
-				9649BA9C253DD60C00F91EE5 /* Wrappers */,
-				961302F92538B5C800ED074D /* View Controllers */,
-				9668688E2532137B00C51694 /* Screens */,
-				96E822B12530E94A00117EF4 /* Extensions */,
 				96CA045E25221EAF00A0A1E5 /* FeelBetterApp.swift */,
-				96CA045F25221EAF00A0A1E5 /* ContentView.swift */,
 				96CA046025221EB000A0A1E5 /* Assets.xcassets */,
-				96E822A62530E74F00117EF4 /* ClericStore.swift */,
-				96E822B22530EA8F00117EF4 /* CreatePatientView.swift */,
-				965BC320253B65AC0071735A /* MenuView.swift */,
-				9649BAAB253DEBA900F91EE5 /* FeverView.swift */,
-				59DB94E82561CB9E00268AE8 /* SymptomResources.swift */,
-				59DB94EE2561D19E00268AE8 /* SymptomList.swift */,
+				592D27742555AE2000F87B70 /* Custom Views */,
+				598F3EB525806282005ABBDF /* Data */,
+				96E822B12530E94A00117EF4 /* Extensions */,
+				9668688E2532137B00C51694 /* Screens */,
+				961302F92538B5C800ED074D /* View Controllers */,
+				9649BA9C253DD60C00F91EE5 /* Wrappers */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -428,33 +407,18 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
-		96E822A42530E6C200117EF4 /* OCK WIP */ = {
-			isa = PBXGroup;
-			children = (
-				96E822A52530E6CF00117EF4 /* Extensions */,
-			);
-			path = "OCK WIP";
-			sourceTree = "<group>";
-		};
-		96E822A52530E6CF00117EF4 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		96E822B12530E94A00117EF4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				966868822532035900C51694 /* OCKFamilyExtension.swift */,
-				9668688C2532100900C51694 /* OCKPatientExtension.swift */,
-				965BC340253C9C520071735A /* OCKContactExtension.swift */,
-				965BC346253CA80F0071735A /* ViewExtension.swift */,
 				592D2799255B018900F87B70 /* AppointmentData.swift */,
+				59F977D7256C57EB00F58AF6 /* ImagePicker.swift */,
 				59ECCBF62552FB6F004085D0 /* InsuranceProvider.swift */,
 				592D278F2557893400F87B70 /* MultilineTextField.swift */,
+				965BC340253C9C520071735A /* OCKContactExtension.swift */,
+				966868822532035900C51694 /* OCKFamilyExtension.swift */,
+				9668688C2532100900C51694 /* OCKPatientExtension.swift */,
 				5925EF032569AFE700FCBA21 /* RemoveDuplicates.swift */,
-				59F977D7256C57EB00F58AF6 /* ImagePicker.swift */,
+				965BC346253CA80F0071735A /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -669,7 +633,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				599D15532550E82900047499 /* RightArmSymptomDiagnosis.swift in Sources */,
 				59FD3C8E2562FE7400F32B60 /* ResourceList.swift in Sources */,
 				599D152D25506BDC00047499 /* MaleBodySectionSelector.swift in Sources */,
 				595566D8257F25270019D783 /* CreateNewProvider.swift in Sources */,
@@ -678,13 +641,10 @@
 				59ECCBF72552FB6F004085D0 /* InsuranceProvider.swift in Sources */,
 				9668688525320B2D00C51694 /* MainScreen.swift in Sources */,
 				59F977D8256C57EB00F58AF6 /* ImagePicker.swift in Sources */,
-				9649BAAC253DEBA900F91EE5 /* FeverView.swift in Sources */,
 				59F977CA256BF2D400F58AF6 /* ZonedZiagnosis.swift in Sources */,
 				59DB94E92561CB9E00268AE8 /* SymptomResources.swift in Sources */,
 				592D27A0255B457F00F87B70 /* AppointmentFieldViw.swift in Sources */,
 				59DB94D7255F4D1F00268AE8 /* ChildListScreen.swift in Sources */,
-				599D15412550E7E000047499 /* HeadSymptomDiagnosis.swift in Sources */,
-				599D155F2550E85900047499 /* RightLegSymptomDiagnosis.swift in Sources */,
 				9668688925320ECD00C51694 /* DiagnosisScreen.swift in Sources */,
 				96686890253213AD00C51694 /* ChildScreen.swift in Sources */,
 				59ECCBF12551EACD004085D0 /* FemaleBodySectionSelector.swift in Sources */,
@@ -702,7 +662,6 @@
 				595566CE257EC99D0019D783 /* MedicalProviderList.swift in Sources */,
 				965BC32F253B8F6E0071735A /* PrivacyPolicyScreen.swift in Sources */,
 				592D279A255B018900F87B70 /* AppointmentData.swift in Sources */,
-				599D153B2550E59700047499 /* ResourcesMenuScreen.swift in Sources */,
 				965BC31B253B63F50071735A /* SettingsScreen.swift in Sources */,
 				9649BAB2253DEE4900F91EE5 /* DailyPageView.swift in Sources */,
 				965BC335253C93B40071735A /* ProviderScreen.swift in Sources */,
@@ -713,19 +672,15 @@
 				9668688725320E7B00C51694 /* CustomListRow.swift in Sources */,
 				592D278A25577F2D00F87B70 /* AddAppointment.swift in Sources */,
 				5994AEE42565DD7A00E2A926 /* AddDetailPopup.swift in Sources */,
-				96E822B32530EA8F00117EF4 /* CreatePatientView.swift in Sources */,
 				5925EF042569AFE700FCBA21 /* RemoveDuplicates.swift in Sources */,
-				599D15592550E84300047499 /* LeftLegSymptomDiagnosis.swift in Sources */,
 				59E3EA7025539821007F3447 /* AppointmentsScreen.swift in Sources */,
 				5970F4EB254B57DA00D69AA0 /* ScreenAssets.swift in Sources */,
 				59820456257537EB00DEF81B /* TemperatureViewController.swift in Sources */,
-				599D15472550E80C00047499 /* LeftArmSymptomDiagnosis.swift in Sources */,
 				96CA048725221EB000A0A1E5 /* FeelBetterApp.swift in Sources */,
 				59DB94EF2561D19E00268AE8 /* SymptomList.swift in Sources */,
 				592D27A6255B582000F87B70 /* EditAppointment.swift in Sources */,
 				59DB94DD2560410300268AE8 /* AddChildPopup.swift in Sources */,
 				5925EF0A256AB0C200FCBA21 /* InsuranceCard.swift in Sources */,
-				599D154D2550E81B00047499 /* TorsoSymptomDiagnosis.swift in Sources */,
 				592D27802555E26600F87B70 /* InformationField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,8 +690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E822A82530E74F00117EF4 /* ClericStore.swift in Sources */,
-				96CA048A25221EB000A0A1E5 /* ContentView.swift in Sources */,
-				96E822B42530EA8F00117EF4 /* CreatePatientView.swift in Sources */,
+				598F3EAB25806007005ABBDF /* SymptomList.swift in Sources */,
 				96CA048825221EB000A0A1E5 /* FeelBetterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
